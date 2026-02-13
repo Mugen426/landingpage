@@ -51,7 +51,7 @@ if (name === "") {
 alert("Name is required");
 return false;
 }
-if (email.indexOf("@") === -1) {
+if (email.indexOf("@") && email.indexOf(".com") === -1) {
 alert("Email must contain @");
 return false;
 }
