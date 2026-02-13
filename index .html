@@ -1,55 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0%;
-        }
-    </style>
-    <link rel="stylesheet" href="style.css">
-
+<title>Form</title>
+<style>
+body {
+font-family: Arial;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background: linear-gradient(to top, pink, paleturquoise);
+}
+form {
+background: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+input {
+display: block;
+margin: 10px 0;
+padding: 8px;
+width: 250px;
+}
+button {
+padding: 8px 15px;
+background: linear-gradient(to top, paleturquoise, pink);
+color: black;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+</style>
 </head>
-
 <body>
-    <div class="maindiv">
-        <h2>Registration form</h2>
-        <form action="" id="myForm">
-            <div class="seconddiv">
-                <h3>Name :</h3>
-                <input class="genz" id="name" type="text">
-                <h3>Email :</h3>
-                <input class="genz" id="email" type="email">
-                <h3>Password</h3>
-                <input class="genz" id="password" type="password"><br><br>
-                <label style="font-size: 18px;">Gender :
-                    <input class="male" name="Gender" type="radio" value="Male">Male
-                    <input class="male" name="Gender" type="radio" value="Female">Female
-                </label><br><br><br>
-                <label style="font-size: 18px;">Select Your Hobbies : &nbsp;
-                    <input type="checkbox" name="Hobbies" value="Cricket">Cricket &nbsp;
-                    <input type="checkbox" name="Hobbies" value="Football">Football &nbsp;
-                    <input type="checkbox" name="Hobbies" value="Dancing">Dancing &nbsp;
-                    <input type="checkbox" name="Hobbies" value="Singing">Singing
-                </label> <br><br><br>
-                <label style="font-size: 18px;">
-                    <input style="margin-top: px ;" type="checkbox" id="terms">
-                    <b>I accept the terms and condition</b>
-                </label><br>
-                <button type="submit" class="submit-btn">Submit</button>
-
-                <p style="color: red;text-align: center;margin-top: 10px;" id="errorMsg"></p>
-                <p style="color: green; text-align: center;" id="successMsg"></p>
-            </div>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
-
+<form id="checkForm" onsubmit="return checkForm()">
+<h2>Login Page</h2>
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="email" placeholder="Email">
+<input type="password" id="pass" placeholder="Password">
+<button type="submit">Submit</button>
+</form>
+<script>
+function checkForm() {
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("pass").value;
+if (name === "") {
+alert("Name is required");
+return false;
+}
+if (email.indexOf("@") === -1) {
+alert("Email must contain @");
+return false;
+}
+if (password.length < 6) {
+alert("Password must be at least 6 character long");
+return false;
+}
+alert("form filled sucessfully");
+return true;
+}
+</script>
 </body>
-
 </html>
